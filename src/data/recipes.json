@@ -27,7 +27,9 @@
     "method": "Shaken",
     "ingredients": [
       { "amount": "0.75 oz", "item": "Monin Desert Pear Syrup" },
-      { "amount": "0.5 oz", "item": "New Amsterdam Vodka" }
+      { "amount": "0.5 oz", "item": "Pineapple Juice" },
+      { "amount": "4 oz", "item": "Country Style Lemonade" },
+      { "amount": "1.5 oz", "item": "New Amsterdam Vodka" }
     ],
     "procedure": [
       "Fill glass with ice",
