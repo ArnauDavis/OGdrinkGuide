@@ -1,0 +1,561 @@
+[
+  {
+    "id": "italian-rum-punch",
+    "name": "Italian Rum Punch",
+    "category": "Cocktails",
+    "glass": "Specialty Glass",
+    "method": "Spindle Mix",
+    "ingredients": [
+      { "amount": "4 oz", "item": "Sour mix" },
+      { "amount": "0.5 oz", "item": "Di Amore Amaretto" },
+      { "amount": "1 oz", "item": "Strawberry passionfruit syrup" },
+      { "amount": "1.5 oz", "item": "Bacardi Silver Rum" }
+    ],
+    "procedure": [
+      "Add ingredients to mixing tin",
+      "Spindle mix for 3 seconds",
+      "Pour mixture into specialty glass"
+    ],
+    "garnish": ["Lime wedge"],
+    "tags": ["Rum", "Tropical", "Sweet", "Spindle Mix"]
+  },
+  {
+    "id": "sicilian-sunset",
+    "name": "Sicilian Sunset",
+    "category": "Cocktails",
+    "glass": "Specialty Glass",
+    "method": "Shaken",
+    "ingredients": [
+      { "amount": "0.75 oz", "item": "Monin Desert Pear Syrup" },
+      { "amount": "0.5 oz", "item": "New Amsterdam Vodka" }
+    ],
+    "procedure": [
+      "Fill glass with ice",
+      "Add ingredients to mixing tin",
+      "Fill mixing tin ½ full with ice",
+      "Shake 10 seconds",
+      "Strain mixture over ice in specialty glass"
+    ],
+    "garnish": ["Lemon wedge", "Mint sprig"],
+    "tags": ["Vodka", "Shaken", "Fruit"]
+  },
+  {
+    "id": "blue-capri",
+    "name": "Blue Capri",
+    "category": "Cocktails",
+    "glass": "Specialty Glass",
+    "method": "Spindle Mix",
+    "ingredients": [
+      { "amount": "2 oz", "item": "Sour mix" },
+      { "amount": "2 oz", "item": "Pineapple juice" },
+      { "amount": "1 oz", "item": "Blue Curacao" },
+      { "amount": "1.5 oz", "item": "Blue Chair Bay Coconut Rum" }
+    ],
+    "procedure": [
+      "Measure ingredients in spindle mixing tin",
+      "Spindle mix for 3 seconds",
+      "Fill glass with ice slightly above the rim",
+      "Pour mixture into specialty glass"
+    ],
+    "garnish": ["Cherry and orange flag"],
+    "tags": ["Rum", "Tropical", "Spindle Mix", "Sweet"]
+  },
+  {
+    "id": "italian-margarita",
+    "name": "Italian Margarita",
+    "category": "Margaritas",
+    "glass": "Margarita Glass",
+    "method": "Spindle Mix",
+    "ingredients": [
+      { "amount": "3 oz", "item": "Sour mix" },
+      { "amount": "1 oz", "item": "Orange juice" },
+      { "amount": "0.75 oz", "item": "Juárez Triple Sec" },
+      { "amount": "1.25 oz", "item": "Jose Cuervo Especial Silver Tequila" }
+    ],
+    "procedure": [
+      "Rim margarita glass with orange sugar rimmer",
+      "Add ingredients to mixing tin",
+      "Spindle mix for 3 seconds",
+      "Fill glass with ice",
+      "Pour mixture into margarita glass"
+    ],
+    "garnish": ["Orange sugar rimmer", "Lime wedge", "Orange wedge", "Bar stirrer", "Side 0.75 oz Di Amore Amaretto shot glass"],
+    "tags": ["Tequila", "Margarita", "Spindle Mix", "Signature"]
+  },
+  {
+    "id": "og-old-fashioned",
+    "name": "OG Old Fashioned",
+    "category": "Classics",
+    "glass": "Rocks Glass",
+    "method": "Built in Glass",
+    "ingredients": [
+      { "amount": "1 dash", "item": "Fee Brothers Olde Fashioned Bitters" },
+      { "amount": "0.5 oz", "item": "Monin Vanilla Syrup" },
+      { "amount": "1.5 oz", "item": "Elijah Craig Small Batch Bourbon" }
+    ],
+    "procedure": [
+      "Measure ingredients into rocks glass",
+      "Fill glass with ice slightly above the rim",
+      "Stir with bar spoon"
+    ],
+    "garnish": ["Single cherry on a pick"],
+    "tags": ["Bourbon", "Classic", "Stirred"]
+  },
+  {
+    "id": "pineapple-coconut-margarita",
+    "name": "Pineapple Coconut Margarita",
+    "category": "Margaritas",
+    "glass": "Specialty Glass",
+    "method": "Spindle Mix",
+    "ingredients": [
+      { "amount": "1.25 oz", "item": "Sour mix" },
+      { "amount": "1.25 oz", "item": "Pineapple juice" },
+      { "amount": "0.75 oz", "item": "Monin Coconut Syrup" },
+      { "amount": "0.75 oz", "item": "Juárez Triple Sec" },
+      { "amount": "1.25 oz", "item": "Mi Campo Blanco Tequila" }
+    ],
+    "procedure": [
+      "Measure ingredients into spindle mixing tin",
+      "Spindle mix for 3 seconds",
+      "Fill margarita glass with ice slightly above the rim",
+      "Pour mixture over ice into specialty glass"
+    ],
+    "garnish": ["Lime wedge", "1 tablespoon coconut shavings"],
+    "tags": ["Tequila", "Margarita", "Tropical", "Spindle Mix"]
+  },
+  {
+    "id": "spiked-strawberry-lemonade",
+    "name": "Spiked Strawberry Lemonade",
+    "category": "Cocktails",
+    "glass": "Collins Glass",
+    "method": "Spindle Mix",
+    "ingredients": [
+      { "amount": "3.5 oz", "item": "Strawberry passion fruit mix" },
+      { "amount": "1.25 oz", "item": "New Amsterdam Vodka" },
+      { "amount": "1 spoonful", "item": "Sliced strawberries" },
+      { "amount": "2", "item": "Split mint leaves" }
+    ],
+    "procedure": [
+      "Add ingredients including fruit to mixing tin",
+      "Spindle mix for 3 seconds",
+      "Pour mixture into collins glass",
+      "Fill glass with ice slightly above the rim"
+    ],
+    "garnish": ["Black straw on the side"],
+    "tags": ["Vodka", "Fruit", "Spindle Mix", "Sweet"]
+  },
+  {
+    "id": "strawberry-limoncello",
+    "name": "Strawberry Limoncello",
+    "category": "Cocktails",
+    "glass": "Margarita Glass",
+    "method": "Shaken",
+    "ingredients": [
+      { "amount": "2 oz", "item": "Sour mix" },
+      { "amount": "0.75 oz", "item": "Monin Strawberry Puree" },
+      { "amount": "0.75 oz", "item": "Caravella Limoncello" },
+      { "amount": "1.25 oz", "item": "Mi Campo Blanco Tequila" }
+    ],
+    "procedure": [
+      "Rim margarita glass with orange sugar rimmer",
+      "Fill glass with ice",
+      "Measure ingredients into mixing tin",
+      "Fill mixing tin halfway with ice",
+      "Shake 10 seconds",
+      "Strain mixture over ice into glass"
+    ],
+    "garnish": ["Orange sugar rimmer", "Lime wedge", "Strawberry"],
+    "tags": ["Tequila", "Limoncello", "Shaken", "Fruit"]
+  },
+  {
+    "id": "frozen-strawberry-mango-margarita",
+    "name": "Frozen Strawberry Mango Margarita",
+    "category": "Frozen / Blended",
+    "glass": "Margarita Glass",
+    "method": "Blended",
+    "ingredients": [
+      { "amount": "1 oz", "item": "Strawberry mix (frozen)" },
+      { "amount": "2 oz", "item": "Sour mix (frozen)" },
+      { "amount": "2 oz", "item": "Mango mix" },
+      { "amount": "1.25 oz", "item": "Jose Cuervo Especial Silver Tequila" },
+      { "amount": "1 level blue scoop", "item": "Ice" }
+    ],
+    "procedure": [
+      "Add strawberry mix to bottom of margarita glass",
+      "Add all other ingredients into red blender",
+      "Blender button #1 for one drink or button #3 for two drinks",
+      "Pour mixture into margarita glass creating a swirl effect"
+    ],
+    "garnish": ["Whole strawberry", "Black straw on the side"],
+    "tags": ["Tequila", "Frozen", "Blended", "Fruit"]
+  },
+  {
+    "id": "frozen-strawberry-margarita",
+    "name": "Frozen Strawberry Margarita",
+    "category": "Frozen / Blended",
+    "glass": "Margarita Glass",
+    "method": "Blended",
+    "ingredients": [
+      { "amount": "2 oz", "item": "Sour mix (frozen)" },
+      { "amount": "2 oz", "item": "Strawberry mix (frozen)" },
+      { "amount": "1.25 oz", "item": "Jose Cuervo Especial Silver Tequila" },
+      { "amount": "1 level blue scoop", "item": "Ice" }
+    ],
+    "procedure": [
+      "Add all ingredients into red blender",
+      "Blender button #1 for one drink or button #3 for two drinks",
+      "Pour mixture into glass"
+    ],
+    "garnish": ["Whole strawberry", "Black straw on the side"],
+    "tags": ["Tequila", "Frozen", "Blended", "Fruit"]
+  },
+  {
+    "id": "bay-breeze",
+    "name": "Bay Breeze",
+    "category": "Cocktails",
+    "glass": "Collins Glass",
+    "method": "Built in Glass",
+    "ingredients": [
+      { "amount": "3 oz", "item": "Pineapple juice" },
+      { "amount": "1.25 oz", "item": "New Amsterdam Vodka" },
+      { "amount": "Topped", "item": "Cranberry juice" }
+    ],
+    "procedure": [
+      "Fill collins glass with ice slightly above rim",
+      "Build over ice in glass",
+      "Top with cranberry juice"
+    ],
+    "garnish": ["Black straw on the side"],
+    "tags": ["Vodka", "Classic", "Built in Glass"]
+  },
+  {
+    "id": "mimosa",
+    "name": "Mimosa",
+    "category": "Wine / Wine-Based",
+    "glass": "Champagne Glass",
+    "method": "Built in Glass",
+    "ingredients": [
+      { "amount": "2 oz", "item": "Orange juice" },
+      { "amount": "3 oz", "item": "Prosecco" }
+    ],
+    "procedure": [
+      "Add ingredients to a champagne glass"
+    ],
+    "garnish": ["No garnish"],
+    "tags": ["Wine", "Prosecco", "Brunch"]
+  },
+  {
+    "id": "kamikaze",
+    "name": "Kamikaze",
+    "category": "Shots / Martinis",
+    "glass": "Rocks Glass",
+    "method": "Shaken",
+    "ingredients": [
+      { "amount": "0.5 oz", "item": "Lime juice" },
+      { "amount": "0.75 oz", "item": "Juárez Triple Sec" },
+      { "amount": "1.25 oz", "item": "New Amsterdam Vodka" }
+    ],
+    "procedure": [
+      "Add ingredients to mixing tin",
+      "Fill mixing tin halfway full with ice",
+      "Cap with mixing glass",
+      "Shake 10 seconds and strain into rocks glass"
+    ],
+    "garnish": ["No garnish"],
+    "tags": ["Vodka", "Shaken", "Shot"]
+  },
+  {
+    "id": "lemon-drop",
+    "name": "Lemon Drop",
+    "category": "Shots / Martinis",
+    "glass": "Martini Glass",
+    "method": "Shaken",
+    "ingredients": [
+      { "amount": "1.5 oz", "item": "Sour mix" },
+      { "amount": "0.75 oz", "item": "Caravella Limoncello" },
+      { "amount": "1.25 oz", "item": "New Amsterdam Vodka" }
+    ],
+    "procedure": [
+      "Rim martini glass (unless a shot is asked for) with sugar rimmer",
+      "Add ingredients to mixing tin",
+      "Fill mixing tin halfway full with ice",
+      "Cap with a mixing glass",
+      "Shake 10 seconds and strain into martini glass or shot glass"
+    ],
+    "garnish": ["Sugar rimmer", "Lemon wedge"],
+    "tags": ["Vodka", "Shaken", "Martini", "Limoncello"]
+  },
+  {
+    "id": "long-island-iced-tea",
+    "name": "Long Island Iced Tea",
+    "category": "Cocktails",
+    "glass": "Specialty Glass",
+    "method": "Spindle Mix",
+    "ingredients": [
+      { "amount": "3 oz", "item": "Sour mix" },
+      { "amount": "0.5 oz", "item": "Juárez Triple Sec" },
+      { "amount": "0.5 oz", "item": "New Amsterdam Vodka" },
+      { "amount": "0.5 oz", "item": "Castillo Rum" },
+      { "amount": "0.5 oz", "item": "New Amsterdam Gin" },
+      { "amount": "Float 1 oz", "item": "Coke" }
+    ],
+    "procedure": [
+      "Add sour mix and liquors to mixing tin",
+      "Spindle mix for 3 seconds",
+      "Fill glass with ice slightly above the rim",
+      "Pour mixture into specialty glass",
+      "Top off with 1 oz of coke"
+    ],
+    "garnish": ["Lemon wedge (squeezed)", "Black straw on the side"],
+    "tags": ["Multi-Spirit", "Spindle Mix", "Classic"]
+  },
+  {
+    "id": "mai-tai",
+    "name": "Mai-Tai",
+    "category": "Cocktails",
+    "glass": "Specialty Glass",
+    "method": "Spindle Mix",
+    "ingredients": [
+      { "amount": "1 oz", "item": "Orange juice" },
+      { "amount": "2 oz", "item": "Pineapple juice" },
+      { "amount": "0.5 oz", "item": "Grenadine" },
+      { "amount": "0.5 oz", "item": "Lime juice" },
+      { "amount": "0.75 oz", "item": "Juárez Triple Sec" },
+      { "amount": "1.25 oz", "item": "Castillo Rum" }
+    ],
+    "procedure": [
+      "Add ingredients to mixing tin",
+      "Spindle mix for 3 seconds",
+      "Fill specialty glass with ice slightly above the rim",
+      "Pour mixture into glass"
+    ],
+    "garnish": ["Cherry and orange flag", "Black straw on the side"],
+    "tags": ["Rum", "Tropical", "Spindle Mix"]
+  },
+  {
+    "id": "mojito",
+    "name": "Mojito",
+    "category": "Cocktails",
+    "glass": "Specialty Glass",
+    "method": "Spindle Mix",
+    "ingredients": [
+      { "amount": "2 oz", "item": "Sour mix" },
+      { "amount": "1 oz", "item": "Pure cane syrup" },
+      { "amount": "1.5 oz", "item": "Castillo Silver Rum" },
+      { "amount": "8", "item": "Torn mint leaves" },
+      { "amount": "1", "item": "Lime wedge (squeezed into drink)" },
+      { "amount": "Top", "item": "Soda water" }
+    ],
+    "procedure": [
+      "Add sour mix, pure cane syrup, and Castillo silver rum to mixing tin",
+      "Add torn in half mint leaves to mixing tin",
+      "Squeeze lime wedge and add into mixing tin",
+      "Spindle mix for 3 seconds",
+      "Pour mixture into specialty glass",
+      "Fill glass with ice slightly above the rim",
+      "Top with soda water",
+      "Stir with bar spoon"
+    ],
+    "garnish": ["Black straw on the side"],
+    "tags": ["Rum", "Mint", "Spindle Mix", "Refreshing"]
+  },
+  {
+    "id": "pina-colada",
+    "name": "Pina Colada",
+    "category": "Frozen / Blended",
+    "glass": "Specialty Glass",
+    "method": "Blended",
+    "ingredients": [
+      { "amount": "4 oz", "item": "Piña Colada mix" },
+      { "amount": "1.25 oz", "item": "Bacardi Rum" },
+      { "amount": "1 level blue scoop", "item": "Ice" }
+    ],
+    "procedure": [
+      "Add all ingredients into red blender",
+      "Press #2 button for one drink or press #4 for two drinks",
+      "Pour mixture into specialty glass"
+    ],
+    "garnish": ["Cherry and orange flag", "Black straw on the side"],
+    "tags": ["Rum", "Frozen", "Blended", "Tropical"]
+  },
+  {
+    "id": "melon-sangria-pitcher",
+    "name": "Melon Sangria Pitcher",
+    "category": "Pitchers / Sangria",
+    "glass": "Pitcher & Side Glass",
+    "method": "Pitcher Build",
+    "ingredients": [
+      { "amount": "4 oz", "item": "Ginger ale" },
+      { "amount": "4 oz", "item": "Watermelon syrup" },
+      { "amount": "16 oz", "item": "Moscato Sangria wine" }
+    ],
+    "procedure": [
+      "Add all ingredients and 2 portions of sangria garnish to pitcher",
+      "Stir with bar spoon",
+      "Fill pitcher with ice"
+    ],
+    "garnish": ["2 sangria garnishes", "1 sangria garnish per side glass with bar straw"],
+    "tags": ["Wine", "Pitcher", "Sangria", "Sharing"]
+  },
+  {
+    "id": "berry-sangria-pitcher",
+    "name": "Berry Sangria Pitcher",
+    "category": "Pitchers / Sangria",
+    "glass": "Pitcher & Side Glass",
+    "method": "Pitcher Build",
+    "ingredients": [
+      { "amount": "4 oz", "item": "Water" },
+      { "amount": "4 oz", "item": "Berry sangria syrup" },
+      { "amount": "16 oz", "item": "Red sangria wine" }
+    ],
+    "procedure": [
+      "Add all ingredients and 2 portions of sangria garnish to pitcher",
+      "Stir with bar spoon",
+      "Fill pitcher with ice"
+    ],
+    "garnish": ["2 sangria garnishes", "1 sangria garnish per side glass with bar straw"],
+    "tags": ["Wine", "Pitcher", "Sangria", "Sharing"]
+  },
+  {
+    "id": "apple-sangria-pitcher",
+    "name": "Apple Sangria Pitcher",
+    "category": "Pitchers / Sangria",
+    "glass": "Pitcher & Side Glass",
+    "method": "Pitcher Build",
+    "ingredients": [
+      { "amount": "4 oz", "item": "Pineapple juice" },
+      { "amount": "4 oz", "item": "Green apple puree" },
+      { "amount": "16 oz", "item": "Moscato Sangria wine" }
+    ],
+    "procedure": [
+      "Add all ingredients and 2 portions of sangria garnish to pitcher",
+      "Stir with bar spoon",
+      "Fill pitcher with ice"
+    ],
+    "garnish": ["2 sangria garnishes", "1 sangria garnish per side glass with bar straw"],
+    "tags": ["Wine", "Pitcher", "Sangria", "Sharing"]
+  },
+  {
+    "id": "peach-bellini",
+    "name": "Peach Bellini",
+    "category": "Wine / Wine-Based",
+    "glass": "Flute Glass",
+    "method": "Built in Glass",
+    "ingredients": [
+      { "amount": "1 split", "item": "Prosecco" },
+      { "amount": "1 oz", "item": "Peach mix" }
+    ],
+    "procedure": [
+      "Add peach mix to flute glass",
+      "Pour prosecco into flute until 1 inch from the top of the glass",
+      "Stir with straw or bar spoon to incorporate mix",
+      "Serve remaining prosecco on the side of the cocktail"
+    ],
+    "specialNotes": "Fun fact: in AK, NM, and UT, they throw away the rest of the bottle, crazy right?",
+    "garnish": ["No garnish"],
+    "tags": ["Wine", "Prosecco", "Brunch"]
+  },
+  {
+    "id": "daiquiri",
+    "name": "Daiquiri",
+    "category": "Cocktails",
+    "glass": "Specialty Glass",
+    "method": "Spindle Mix",
+    "ingredients": [
+      { "amount": "4 oz", "item": "Sour mix" },
+      { "amount": "0.5 oz", "item": "Lime juice" },
+      { "amount": "1.25 oz", "item": "Castillo Rum" }
+    ],
+    "procedure": [
+      "Add ingredients to spindle mixing tin",
+      "Spindle mix for 3 seconds",
+      "Fill specialty glass with ice slightly above the rim",
+      "Pour mixture into specialty glass"
+    ],
+    "garnish": ["Lime wedge", "Black straw on the side"],
+    "tags": ["Rum", "Classic", "Spindle Mix"]
+  },
+  {
+    "id": "cosmopolitan-martini",
+    "name": "Cosmopolitan Martini",
+    "category": "Shots / Martinis",
+    "glass": "Chilled Glass",
+    "method": "Shaken",
+    "ingredients": [
+      { "amount": "2 oz", "item": "Cranberry juice" },
+      { "amount": "0.5 oz", "item": "Juárez Triple Sec" },
+      { "amount": "2 oz", "item": "New Amsterdam Vodka" }
+    ],
+    "procedure": [
+      "Add ingredients to mixing tin",
+      "Fill mixing tin halfway full with ice",
+      "Cap with a mixing glass",
+      "Shake for 10 seconds and strain",
+      "Strain mixture into chilled glass"
+    ],
+    "garnish": ["Lime wheel"],
+    "tags": ["Vodka", "Shaken", "Martini"]
+  },
+  {
+    "id": "espresso-martini",
+    "name": "Espresso Martini",
+    "category": "Shots / Martinis",
+    "glass": "Martini Glass",
+    "method": "Shaken",
+    "ingredients": [
+      { "amount": "1.5 oz", "item": "Half and half" },
+      { "amount": "1 oz", "item": "Iced coffee concentrate (1 pump)" },
+      { "amount": "1 oz", "item": "New Amsterdam Vodka" },
+      { "amount": "1 oz", "item": "Dark Crème de Cacao" }
+    ],
+    "procedure": [
+      "Add ingredients into mixing tin",
+      "Fill mixing tin halfway full with ice",
+      "Cap with a mixing glass",
+      "Shake for 10 seconds and strain",
+      "Strain mixture into chilled martini glass"
+    ],
+    "garnish": ["No garnish"],
+    "tags": ["Vodka", "Shaken", "Martini", "Coffee"]
+  },
+  {
+    "id": "gin-martini",
+    "name": "Gin Martini",
+    "category": "Shots / Martinis",
+    "glass": "Martini Glass",
+    "method": "Shaken",
+    "ingredients": [
+      { "amount": "0.25 oz", "item": "Martini & Rossi Dry Vermouth" },
+      { "amount": "2.25 oz", "item": "New Amsterdam Gin" }
+    ],
+    "procedure": [
+      "Add ingredients into mixing tin",
+      "Fill mixing tin halfway full with ice",
+      "Cap with mixing glass",
+      "Shake 10 seconds and strain",
+      "Strain mixture into chilled martini glass"
+    ],
+    "garnish": ["Olive spear"],
+    "tags": ["Gin", "Shaken", "Martini", "Classic"]
+  },
+  {
+    "id": "vodka-martini",
+    "name": "Vodka Martini",
+    "category": "Shots / Martinis",
+    "glass": "Martini Glass",
+    "method": "Shaken",
+    "ingredients": [
+      { "amount": "0.25 oz", "item": "Martini & Rossi Dry Vermouth" },
+      { "amount": "2.25 oz", "item": "New Amsterdam Vodka" }
+    ],
+    "procedure": [
+      "Add ingredients into mixing tin",
+      "Fill mixing tin halfway full with ice",
+      "Cap with mixing glass",
+      "Shake 10 seconds and strain",
+      "Strain mixture into chilled martini glass"
+    ],
+    "garnish": ["Olive spear"],
+    "tags": ["Vodka", "Shaken", "Martini", "Classic"]
+  }
+]
