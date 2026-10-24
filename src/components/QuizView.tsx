@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import recipesData from '../data/recipes.json';
 import { type Recipe } from '../types/recipe';
 
