@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { type ViewMode } from '../types/recipe';
 
@@ -15,57 +16,138 @@ export default function Navbar({
   onToggleDarkMode,
 }: NavbarProps) {
   return (
-    <header className="sticky top-0 z-20 backdrop-blur-md bg-[#F4F3EE]/95 dark:bg-[#151A14]/95 border-b border-[#E2DFD2] dark:border-[#2A3527] px-4 py-3.5 shadow-sm">
-      <div className="max-w-2xl mx-auto flex items-center justify-between">
-        
-        {/* App Title */}
-        <div className="flex items-center space-x-2.5">
-          <span className="text-xl p-1.5 rounded-lg bg-[#3B5323]/10 dark:bg-[#5C7F35]/20 text-[#3B5323] dark:text-[#7A9A5B]">🌿</span>
-          <div>
-            <h1 className="font-bold text-base tracking-wide font-serif text-[#3B5323] dark:text-[#8CB066]">
-              OG Bar Guide
+    <header
+      className="
+        sticky top-0 z-20
+        border-b border-[var(--border-color)]
+        bg-[var(--bg-card)]/95
+        backdrop-blur-xl
+        shadow-[0_2px_12px_rgba(0,0,0,0.04)]
+        transition-colors duration-200
+      "
+    >
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-3.5">
+
+        {/* Brand */}
+        <div className="flex min-w-0 items-center gap-3">
+          <div
+            className="
+              relative flex h-11 w-11 shrink-0 items-center justify-center
+              overflow-hidden rounded-xl
+              border border-[var(--gold-color)]/40
+              bg-[var(--accent-soft)]
+              shadow-sm
+            "
+            aria-hidden="true"
+          >
+            <span className="text-2xl leading-none">🌿</span>
+            <span className="absolute bottom-0 left-0 h-1 w-full bg-[var(--gold-color)]" />
+          </div>
+
+          <div className="min-w-0">
+            <h1
+              className="
+                truncate font-serif text-lg font-bold leading-tight
+                tracking-tight text-[var(--text-primary)]
+                sm:text-xl
+              "
+            >
+              <span className="text-[var(--accent-color)]">OG</span>
+              {' '}Bar Guide
             </h1>
-            <p className="text-[10px] uppercase tracking-widest text-[#8C7A5B] dark:text-[#D4AF37] font-semibold">
-              Recipe & Flashcards
-            </p>
+
+            <div className="mt-1 flex items-center gap-1.5">
+              <span className="h-px w-4 bg-[var(--gold-color)]" />
+              <p className="truncate text-[9px] font-semibold uppercase tracking-[0.16em] text-[var(--text-muted)] sm:text-[10px]">
+                Recipes & Flashcards
+              </p>
+              <span className="h-px w-4 bg-[var(--gold-color)]" />
+            </div>
           </div>
         </div>
 
-        {/* View Switcher Tabs & Theme Toggle */}
-        <div className="flex items-center space-x-2">
-          <div className="flex bg-[#E2DFD2] dark:bg-[#20291E] p-1 rounded-xl text-xs font-medium">
-            <button
-              onClick={() => onViewChange('catalog')}
-              className={`px-3 py-1.5 rounded-lg transition ${
-                currentView === 'catalog'
-                  ? 'bg-white dark:bg-[#3B5323] text-[#2D3328] dark:text-white shadow-sm'
-                  : 'text-[#555C50] dark:text-[#B1B8AE] hover:text-[#2D3328]'
-              }`}
-            >
-              Catalog
-            </button>
-            <button
-              onClick={() => onViewChange('quiz')}
-              className={`px-3 py-1.5 rounded-lg transition ${
-                currentView === 'quiz'
-                  ? 'bg-white dark:bg-[#3B5323] text-[#2D3328] dark:text-white shadow-sm'
-                  : 'text-[#555C50] dark:text-[#B1B8AE] hover:text-[#2D3328]'
-              }`}
-            >
-              Quiz Mode
-            </button>
-          </div>
-
-          <button
-            onClick={onToggleDarkMode}
-            className="p-2 rounded-full border border-[#E2DFD2] dark:border-[#2A3527] bg-white dark:bg-[#20291E] text-xs shadow-sm hover:border-[#3B5323] transition"
-            aria-label="Toggle theme"
+        {/* Navigation and Theme */}
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <nav
+            aria-label="Main navigation"
+            className="
+              flex items-center gap-1 rounded-xl
+              border border-[var(--border-color)]
+              bg-[var(--bg-secondary)] p-1
+            "
           >
-            {isDarkMode ? '☀️' : '🌙'}
+            <button
+              type="button"
+              onClick={() => onViewChange('catalog')}
+              aria-current={currentView === 'catalog' ? 'page' : undefined}
+              className={`
+                flex min-h-9 items-center justify-center gap-1.5
+                rounded-lg px-2.5 py-2 text-xs font-semibold
+                transition-all duration-200 sm:px-4 sm:text-sm
+                ${
+                  currentView === 'catalog'
+                    ? 'bg-[var(--bg-card)] text-[var(--accent-color)] shadow-sm ring-1 ring-[var(--border-color)]'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                }
+              `}
+            >
+              <span aria-hidden="true">☷</span>
+              <span>Catalog</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onViewChange('quiz')}
+              aria-current={currentView === 'quiz' ? 'page' : undefined}
+              className={`
+                flex min-h-9 items-center justify-center gap-1.5
+                rounded-lg px-2.5 py-2 text-xs font-semibold
+                transition-all duration-200 sm:px-4 sm:text-sm
+                ${
+                  currentView === 'quiz'
+                    ? 'bg-[var(--accent-color)] text-[var(--accent-contrast)] shadow-sm'
+                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                }
+              `}
+            >
+              <span aria-hidden="true">✦</span>
+              <span>Quiz</span>
+            </button>
+          </nav>
+
+          {/* Theme Toggle */}
+          <button
+            type="button"
+            onClick={onToggleDarkMode}
+            aria-label={
+              isDarkMode
+                ? 'Switch to light mode'
+                : 'Switch to dark mode'
+            }
+            aria-pressed={isDarkMode}
+            title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            className="
+              flex h-10 w-10 shrink-0 items-center justify-center
+              rounded-xl border border-[var(--border-color)]
+              bg-[var(--bg-card)] text-lg
+              shadow-sm transition-all duration-200
+              hover:border-[var(--gold-color)]
+              hover:bg-[var(--accent-soft)]
+              active:scale-95
+              focus-visible:outline-2
+              focus-visible:outline-offset-2
+              focus-visible:outline-[var(--focus-ring)]
+            "
+          >
+            <span aria-hidden="true">
+              {isDarkMode ? '☀️' : '🌙'}
+            </span>
           </button>
         </div>
-
       </div>
+
+      {/* Fine Tuscan gold accent */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[var(--gold-color)]/50 to-transparent" />
     </header>
   );
 }

@@ -3,93 +3,220 @@ import { type Recipe } from '../types/recipe';
 
 interface RecipeCardProps {
   recipe: Recipe;
+  isExpanded: boolean;
+  onToggle: () => void;
+  onBackToTop: () => void;
 }
 
-export default function RecipeCard({ recipe }: RecipeCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+export default function RecipeCard({
+  recipe,
+  isExpanded,
+  onToggle,
+  onBackToTop,
+}: RecipeCardProps) {
   return (
-    <div className="bg-white dark:bg-[#20291E] border border-[#E2DFD2] dark:border-[#2A3527] rounded-xl shadow-sm overflow-hidden transition-all duration-200 hover:border-[#3B5323]/50">
-      
+    <div
+      className="
+        overflow-hidden rounded-2xl
+        border border-[var(--border-color)]
+        bg-[var(--bg-card)]
+        shadow-[var(--shadow-card)]
+        transition-all duration-200
+        hover:border-[var(--gold-color)]
+      "
+    >
       {/* Card Header */}
-      <div
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="p-4 cursor-pointer flex items-center justify-between hover:bg-[#3B5323]/[0.02] dark:hover:bg-white/[0.02] transition"
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isExpanded}
+        className="
+          flex w-full items-center justify-between gap-3
+          p-4 text-left transition-colors
+          hover:bg-[var(--accent-soft)]/30
+          focus-visible:outline-2
+          focus-visible:outline-offset-[-3px]
+          focus-visible:outline-[var(--focus-ring)]
+        "
       >
-        <div className="space-y-1">
-          <div className="flex items-center space-x-2.5">
-            <h2 className="font-bold text-base font-serif text-[#2D3328] dark:text-[#F0F2EE]">
+        <div className="min-w-0 flex-1 space-y-1.5">
+          <div className="flex flex-wrap items-center gap-2">
+            <h2 className="font-serif text-base font-bold text-[var(--text-primary)] sm:text-lg">
               {recipe.name}
             </h2>
-            <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-[#F4F3EE] dark:bg-[#161D15] text-[#555C50] dark:text-[#9DA698] font-semibold border border-[#E2DFD2] dark:border-[#2A3527]">
+
+            <span
+              className="
+                rounded-md border border-[var(--border-color)]
+                bg-[var(--bg-secondary)]
+                px-2 py-1 text-[9px] font-bold
+                uppercase tracking-wider
+                text-[var(--text-muted)]
+              "
+            >
               {recipe.glass}
             </span>
           </div>
-          <p className="text-xs text-[#737A6E] dark:text-[#9DA698] line-clamp-1 font-normal">
-            {recipe.ingredients.map((i) => `${i.amount} ${i.item}`).join(' • ')}
+
+          <p className="line-clamp-2 text-xs leading-relaxed text-[var(--text-muted)]">
+            {recipe.ingredients
+              .map((ingredient) => `${ingredient.amount} ${ingredient.item}`)
+              .join(' • ')}
           </p>
         </div>
 
-        <div className="text-[#8C7A5B] font-bold text-xs ml-2 p-1.5 rounded-full bg-[#F4F3EE] dark:bg-[#161D15]">
-          {isExpanded ? '▲' : '▼'}
-        </div>
-      </div>
+        <span
+          className="
+            flex h-8 w-8 shrink-0 items-center justify-center
+            rounded-full border border-[var(--border-color)]
+            bg-[var(--bg-secondary)]
+            text-sm font-bold text-[var(--accent-color)]
+          "
+          aria-hidden="true"
+        >
+          {isExpanded ? '−' : '+'}
+        </span>
+      </button>
 
       {/* Expanded Details */}
       {isExpanded && (
-        <div className="px-4 pb-4 pt-2 border-t border-[#E2DFD2] dark:border-[#2A3527] space-y-4 text-sm bg-[#FAF9F5] dark:bg-[#1B2319]">
-          
+        <div className="space-y-6 border-t border-[var(--border-color)] bg-[var(--bg-primary)]/60 px-4 pb-4 pt-5 sm:px-5">
+          {/* Bar Tip */}
           {recipe.specialNotes && (
-            <div className="p-3 rounded-lg bg-[#FDF8E2] dark:bg-[#2C291B] border border-[#E6D59C] dark:border-[#574B24] text-[#594914] dark:text-[#F3E5AB] text-xs flex items-start space-x-2.5">
-              <span className="text-sm">⚠️</span>
+            <div
+              className="
+                flex items-start gap-3 rounded-xl
+                border border-[var(--gold-color)]/40
+                bg-[var(--gold-soft)] p-3.5
+                text-xs leading-relaxed
+                text-[var(--text-primary)]
+              "
+            >
+              <span className="text-base" aria-hidden="true">
+                💡
+              </span>
+
               <div>
-                <span className="font-bold font-serif">Bar Tip: </span>
-                {recipe.specialNotes}
+                <p className="mb-1 font-bold text-[var(--accent-color)]">
+                  Bartender's Note
+                </p>
+                <p>{recipe.specialNotes}</p>
               </div>
             </div>
           )}
 
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#3B5323] dark:text-[#8CB066] mb-1.5 flex items-center gap-1">
-              <span>🍸</span> Ingredients
+          {/* Ingredients */}
+          <section>
+            <h3 className="mb-3 flex items-center gap-2 font-serif text-base font-bold text-[var(--text-primary)]">
+              <span aria-hidden="true">🍸</span>
+              Ingredients
             </h3>
-            <ul className="grid grid-cols-1 gap-1 pl-1">
-              {recipe.ingredients.map((ing, idx) => (
-                <li key={idx} className="text-xs flex justify-between border-b border-[#E2DFD2]/60 dark:border-[#2A3527]/60 py-1">
-                  <span className="font-medium text-[#2D3328] dark:text-[#D8DDD5]">{ing.item}</span>
-                  <span className="text-[#8C7A5B] dark:text-[#D4AF37] font-mono font-semibold">{ing.amount}</span>
+
+            <ul className="overflow-hidden rounded-xl border border-[var(--border-color)]">
+              {recipe.ingredients.map((ingredient, index) => (
+                <li
+                  key={`${ingredient.item}-${index}`}
+                  className={`
+                    flex items-center justify-between gap-3 px-3 py-2.5
+                    ${
+                      index !== recipe.ingredients.length - 1
+                        ? 'border-b border-[var(--border-color)]'
+                        : ''
+                    }
+                    ${
+                      index % 2 === 1
+                        ? 'bg-[var(--bg-secondary)]/50'
+                        : 'bg-[var(--bg-card)]'
+                    }
+                  `}
+                >
+                  <span className="text-xs font-medium text-[var(--text-primary)]">
+                    {ingredient.item}
+                  </span>
+
+                  <span className="shrink-0 font-mono text-xs font-bold text-[var(--accent-color)]">
+                    {ingredient.amount}
+                  </span>
                 </li>
               ))}
             </ul>
-          </div>
+          </section>
 
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#3B5323] dark:text-[#8CB066] mb-1.5 flex items-center gap-1">
-              <span>📜</span> Procedure ({recipe.method})
+          {/* Procedure */}
+          <section>
+            <h3 className="mb-3 flex items-center gap-2 font-serif text-base font-bold text-[var(--text-primary)]">
+              <span aria-hidden="true">📜</span>
+              Preparation
+              <span className="text-[10px] font-medium uppercase tracking-wider text-[var(--text-muted)]">
+                {recipe.method}
+              </span>
             </h3>
-            <ol className="list-decimal list-inside space-y-1 text-xs text-[#4A5245] dark:text-[#BAC2B6] pl-1">
-              {recipe.procedure.map((step, idx) => (
-                <li key={idx} className="leading-relaxed">{step}</li>
+
+            <ol className="space-y-3">
+              {recipe.procedure.map((step, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <span
+                    className="
+                      flex h-6 w-6 shrink-0 items-center justify-center
+                      rounded-full border border-[var(--gold-color)]/50
+                      bg-[var(--bg-secondary)]
+                      font-mono text-[10px] font-bold
+                      text-[var(--accent-color)]
+                    "
+                  >
+                    {index + 1}
+                  </span>
+
+                  <p className="pt-0.5 text-xs leading-relaxed text-[var(--text-primary)]">
+                    {step}
+                  </p>
+                </li>
               ))}
             </ol>
-          </div>
+          </section>
 
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#3B5323] dark:text-[#8CB066] mb-1.5 flex items-center gap-1">
-              <span>🍋</span> Garnish
+          {/* Garnish */}
+          <section>
+            <h3 className="mb-3 flex items-center gap-2 font-serif text-base font-bold text-[var(--text-primary)]">
+              <span aria-hidden="true">🍋</span>
+              Garnish
             </h3>
-            <div className="flex flex-wrap gap-1.5">
-              {recipe.garnish.map((g, idx) => (
+
+            <div className="flex flex-wrap gap-2">
+              {recipe.garnish.map((garnish, index) => (
                 <span
-                  key={idx}
-                  className="text-[11px] px-2.5 py-1 rounded-md bg-white dark:bg-[#20291E] border border-[#E2DFD2] dark:border-[#2A3527] text-[#4A5245] dark:text-[#BAC2B6] font-medium"
+                  key={`${garnish}-${index}`}
+                  className="
+                    rounded-lg border border-[var(--border-color)]
+                    bg-[var(--bg-card)] px-3 py-2
+                    text-xs font-medium text-[var(--text-primary)]
+                  "
                 >
-                  {g}
+                  {garnish}
                 </span>
               ))}
             </div>
-          </div>
+          </section>
 
+          {/* Back to Top */}
+          <div className="border-t border-[var(--border-color)] pt-4">
+            <button
+              type="button"
+              onClick={onBackToTop}
+              className="
+                flex min-h-11 w-full items-center justify-center gap-2
+                rounded-xl border border-[var(--border-color)]
+                bg-[var(--bg-card)] px-4 py-2.5
+                text-xs font-bold text-[var(--accent-color)]
+                transition-colors
+                hover:border-[var(--gold-color)]
+                hover:bg-[var(--accent-soft)]
+              "
+            >
+              <span aria-hidden="true">↑</span>
+              Back to Top
+            </button>
+          </div>
         </div>
       )}
     </div>
