@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { type ViewMode } from '../types/recipe';
 
 interface NavbarProps {

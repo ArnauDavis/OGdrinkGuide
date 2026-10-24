@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import recipesData from '../data/recipes.json';
 import { type Recipe } from '../types/recipe';
 import RecipeCard from './RecipeCard';

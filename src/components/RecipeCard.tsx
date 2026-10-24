@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { type Recipe } from '../types/recipe';
 
 interface RecipeCardProps {
