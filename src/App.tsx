@@ -7,6 +7,7 @@ import QuizView from './components/QuizView';
 export default function App() {
   const [currentView, setCurrentView] = useState<ViewMode>('catalog');
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDarkMode);
@@ -26,10 +27,19 @@ export default function App() {
         onViewChange={setCurrentView}
         isDarkMode={isDarkMode}
         onToggleDarkMode={toggleDarkMode}
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
       />
 
       <main className="min-h-screen pb-12">
-        {currentView === 'catalog' ? <CatalogView /> : <QuizView />}
+        {currentView === 'catalog' ? (
+          <CatalogView 
+            searchQuery={searchQuery} 
+            onSearchChange={setSearchQuery} 
+          />
+        ) : (
+          <QuizView />
+        )}
       </main>
     </div>
   );

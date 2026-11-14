@@ -1,3 +1,4 @@
+import { type ChangeEvent } from 'react';
 import { type ViewMode } from '../types/recipe';
 
 interface NavbarProps {
@@ -5,6 +6,8 @@ interface NavbarProps {
   onViewChange: (view: ViewMode) => void;
   isDarkMode: boolean;
   onToggleDarkMode: () => void;
+  searchQuery: string;
+  onSearchChange: (query: string) => void;
 }
 
 export default function Navbar({
@@ -12,9 +15,11 @@ export default function Navbar({
   onViewChange,
   isDarkMode,
   onToggleDarkMode,
+  searchQuery,
+  onSearchChange,
 }: NavbarProps) {
   return (
-    <header className="sticky top-0 z-20 border-b border-[var(--border-color)] bg-[var(--bg-card)]/95 shadow-sm backdrop-blur-xl transition-colors duration-200">
+    <header className="sticky top-0 z-30 border-b border-[var(--border-color)] bg-[var(--bg-card)]/95 shadow-sm backdrop-blur-xl transition-colors duration-200">
       <div className="mx-auto max-w-5xl px-4 py-3 sm:px-6 lg:py-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
 
@@ -36,19 +41,45 @@ export default function Navbar({
 
               <div className="mt-1 flex items-center gap-1.5">
                 <span className="h-px w-3 shrink-0 bg-[var(--gold-color)] sm:w-4" />
-
                 <p className="whitespace-nowrap text-[8px] font-semibold uppercase tracking-[0.1em] text-[var(--text-muted)] sm:text-[9px] lg:text-[10px] lg:tracking-[0.16em]">
                   Recipes & Flashcards
                 </p>
-
                 <span className="h-px w-3 shrink-0 bg-[var(--gold-color)] sm:w-4" />
               </div>
             </div>
           </div>
 
+          {/* Persistent Search Bar (Visible in Catalog View) */}
+          {currentView === 'catalog' && (
+            <div className="w-full sm:max-w-xs md:w-64 lg:w-72">
+              <div className="relative">
+                <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-xs text-[var(--text-muted)]">
+                  🔍
+                </span>
+                <input
+                  type="search"
+                  placeholder="Search recipes..."
+                  value={searchQuery}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => onSearchChange(e.target.value)}
+                  aria-label="Search drink recipes"
+                  className="h-9 w-full rounded-lg border border-[var(--border-color)] bg-[var(--bg-secondary)] py-1 pl-9 pr-8 text-xs text-[var(--text-primary)] shadow-sm placeholder:text-[var(--text-muted)] focus:border-[var(--accent-color)] focus:outline-none focus:ring-1 focus:ring-[var(--accent-soft)]"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => onSearchChange('')}
+                    aria-label="Clear search"
+                    className="absolute inset-y-0 right-0 flex items-center px-2.5 text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+
           {/* Navigation and Theme */}
           <div className="flex items-center justify-between gap-3 sm:justify-end sm:gap-3 lg:gap-4">
-
             <nav
               aria-label="Main navigation"
               className="flex min-w-0 items-center gap-1 rounded-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] p-1"
@@ -86,9 +117,7 @@ export default function Navbar({
               type="button"
               onClick={onToggleDarkMode}
               aria-label={
-                isDarkMode
-                  ? 'Switch to light mode'
-                  : 'Switch to dark mode'
+                isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'
               }
               aria-pressed={isDarkMode}
               title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}

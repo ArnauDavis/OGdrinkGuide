@@ -1,14 +1,16 @@
-import { useState, useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import recipesData from '../data/recipes.json';
 import { type Recipe } from '../types/recipe';
 import RecipeCard from './RecipeCard';
 
-export default function CatalogView() {
-  const [searchQuery, setSearchQuery] = useState('');
+interface CatalogViewProps {
+  searchQuery: string;
+  onSearchChange: (query: string) => void;
+}
+
+export default function CatalogView({ searchQuery, onSearchChange }: CatalogViewProps) {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [expandedRecipeId, setExpandedRecipeId] = useState<
-    Recipe['id'] | null
-  >(null);
+  const [expandedRecipeId, setExpandedRecipeId] = useState<Recipe['id'] | null>(null);
 
   const recipes = recipesData as Recipe[];
 
@@ -20,39 +22,28 @@ export default function CatalogView() {
   const filteredRecipes = useMemo(() => {
     return recipes.filter((recipe) => {
       const matchesCategory =
-        selectedCategory === 'All' ||
-        recipe.category === selectedCategory;
+        selectedCategory === 'All' || recipe.category === selectedCategory;
 
       const query = searchQuery.toLowerCase().trim();
 
       if (!query) return matchesCategory;
 
       const matchesName = recipe.name.toLowerCase().includes(query);
-
-      const matchesTags = recipe.tags.some((tag) =>
-        tag.toLowerCase().includes(query)
-      );
-
+      const matchesTags = recipe.tags.some((tag) => tag.toLowerCase().includes(query));
       const matchesIngredients = recipe.ingredients.some((ingredient) =>
         ingredient.item.toLowerCase().includes(query)
       );
 
-      return (
-        matchesCategory &&
-        (matchesName || matchesTags || matchesIngredients)
-      );
+      return matchesCategory && (matchesName || matchesTags || matchesIngredients);
     });
   }, [recipes, searchQuery, selectedCategory]);
 
   const handleToggleRecipe = (recipeId: Recipe['id']) => {
-    setExpandedRecipeId((currentId) =>
-      currentId === recipeId ? null : recipeId
-    );
+    setExpandedRecipeId((currentId) => (currentId === recipeId ? null : recipeId));
   };
 
   const handleBackToTop = () => {
     setExpandedRecipeId(null);
-
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -75,58 +66,13 @@ export default function CatalogView() {
         </h2>
 
         <p className="mt-1 text-sm text-[var(--text-muted)]">
-          Your quick reference for recipes, ingredients, and preparation.
+          Your quick reference for recipes, ingredients, and preparation. Scroll down to see the search bar appear in the header!
         </p>
       </section>
 
-      {/* Search Bar */}
-      <div className="relative">
-        <span
-          className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-[var(--text-muted)]"
-          aria-hidden="true"
-        >
-          🔍
-        </span>
-
-        <input
-          type="search"
-          placeholder="Search drinks, spirits, or ingredients..."
-          value={searchQuery}
-          onChange={(event) => setSearchQuery(event.target.value)}
-          aria-label="Search drink recipes"
-          className="
-            min-h-12 w-full rounded-xl
-            border border-[var(--border-color)]
-            bg-[var(--bg-card)]
-            py-3 pl-11 pr-11 text-sm
-            text-[var(--text-primary)]
-            shadow-sm transition
-            placeholder:text-[var(--text-muted)]
-            focus:border-[var(--accent-color)]
-            focus:outline-none
-            focus:ring-2 focus:ring-[var(--accent-soft)]
-          "
-        />
-
-        {searchQuery && (
-          <button
-            type="button"
-            onClick={() => setSearchQuery('')}
-            aria-label="Clear search"
-            className="
-              absolute inset-y-0 right-0 flex items-center
-              px-4 text-sm text-[var(--text-muted)]
-              transition hover:text-[var(--text-primary)]
-            "
-          >
-            ✕
-          </button>
-        )}
-      </div>
-
       {/* Category Filters */}
       <div
-        className="flex gap-2 overflow-x-auto pb-2"
+        className="flex gap-2 overflow-x-auto pb-2 pt-2"
         aria-label="Filter recipes by category"
       >
         {categories.map((category) => {
@@ -168,7 +114,7 @@ export default function CatalogView() {
           <button
             type="button"
             onClick={() => {
-              setSearchQuery('');
+              onSearchChange('');
               setSelectedCategory('All');
               setExpandedRecipeId(null);
             }}
@@ -208,7 +154,7 @@ export default function CatalogView() {
             <button
               type="button"
               onClick={() => {
-                setSearchQuery('');
+                onSearchChange('');
                 setSelectedCategory('All');
               }}
               className="mt-4 rounded-lg bg-[var(--accent-color)] px-4 py-2 text-xs font-bold text-[var(--accent-contrast)] transition hover:opacity-90"
