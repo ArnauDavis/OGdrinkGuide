@@ -1,4 +1,23 @@
-[
+export interface Ingredient {
+  amount: string;
+  item: string;
+}
+
+export interface Recipe {
+  id: string;
+  name: string;
+  category: string;
+  glass: string;
+  method: string;
+  ingredients: Ingredient[];
+  procedure: string[];
+  garnish: string[];
+  tags: string[];
+  specialNotes?: string;
+}
+
+
+const unsortedRecipes: Recipe[] = [
   {
     "id": "italian-rum-punch",
     "name": "Italian Rum Punch",
@@ -1052,3 +1071,9 @@
     ]
   }
 ]
+
+const recipesData: Recipe[] = [...unsortedRecipes].sort((a, b) =>
+  a.name.localeCompare(b.name)
+);
+
+export default recipesData;

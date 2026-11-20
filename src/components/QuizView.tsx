@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import recipesData from '../data/recipes.json';
+import recipesData from '../data/recipes';
 import { type Recipe } from '../types/recipe';
 
 export default function QuizView() {

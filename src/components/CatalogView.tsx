@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import recipesData from '../data/recipes.json';
+import recipesData from '../data/recipes.ts';
 import { type Recipe } from '../types/recipe';
 import RecipeCard from './RecipeCard';
 
