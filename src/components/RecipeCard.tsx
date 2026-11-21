@@ -18,6 +18,14 @@ export default function RecipeCard({
   onBackToTop,
 }: RecipeCardProps) {
   const [batchSize, setBatchSize] = useState<number>(1);
+  const [prevExpanded, setPrevExpanded] = useState<boolean>(isExpanded);
+
+  if (isExpanded !== prevExpanded) {
+    setPrevExpanded(isExpanded);
+    if (!isExpanded) {
+      setBatchSize(1);
+    }
+  }
 
   return (
     <div
@@ -62,7 +70,7 @@ export default function RecipeCard({
               {recipe.glass}
             </span>
 
-            {batchSize > 1 && (
+            {isExpanded && batchSize > 1 && (
               <span
                 className="
                   rounded-md bg-[var(--accent-color)]
