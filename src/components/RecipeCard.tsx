@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { type Recipe } from '../types/recipe';
+import { scaleAmount } from '../utils/scaleAmount';
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -7,12 +9,16 @@ interface RecipeCardProps {
   onBackToTop: () => void;
 }
 
+const BATCH_OPTIONS = [1, 2, 3, 4];
+
 export default function RecipeCard({
   recipe,
   isExpanded,
   onToggle,
   onBackToTop,
 }: RecipeCardProps) {
+  const [batchSize, setBatchSize] = useState<number>(1);
+
   return (
     <div
       className="
@@ -55,11 +61,26 @@ export default function RecipeCard({
             >
               {recipe.glass}
             </span>
+
+            {batchSize > 1 && (
+              <span
+                className="
+                  rounded-md bg-[var(--accent-color)]
+                  px-2 py-0.5 font-mono text-[10px] font-bold
+                  text-white
+                "
+              >
+                {batchSize}x Batch
+              </span>
+            )}
           </div>
 
           <p className="line-clamp-2 text-xs leading-relaxed text-[var(--text-muted)]">
             {recipe.ingredients
-              .map((ingredient) => `${ingredient.amount} ${ingredient.item}`)
+              .map(
+                (ingredient) =>
+                  `${scaleAmount(ingredient.amount, batchSize)} ${ingredient.item}`
+              )
               .join(' • ')}
           </p>
         </div>
@@ -104,12 +125,39 @@ export default function RecipeCard({
             </div>
           )}
 
-          {/* Ingredients */}
+          {/* Ingredients + Batch Scaler */}
           <section>
-            <h3 className="mb-3 flex items-center gap-2 font-serif text-base font-bold text-[var(--text-primary)]">
-              <span aria-hidden="true">🍸</span>
-              Ingredients
-            </h3>
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+              <h3 className="flex items-center gap-2 font-serif text-base font-bold text-[var(--text-primary)]">
+                <span aria-hidden="true">🍸</span>
+                Ingredients
+              </h3>
+
+              <div
+                className="flex items-center gap-1"
+                role="group"
+                aria-label="Batch multiplier"
+              >
+                {BATCH_OPTIONS.map((size) => (
+                  <button
+                    key={size}
+                    type="button"
+                    onClick={() => setBatchSize(size)}
+                    className={`
+                      min-h-8 min-w-8 rounded-lg px-2.5 py-1
+                      font-mono text-xs font-bold transition-colors
+                      ${
+                        batchSize === size
+                          ? 'bg-[var(--accent-color)] text-white shadow-xs'
+                          : 'border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-muted)] hover:border-[var(--gold-color)] hover:text-[var(--text-primary)]'
+                      }
+                    `}
+                  >
+                    {size}x
+                  </button>
+                ))}
+              </div>
+            </div>
 
             <ul className="overflow-hidden rounded-xl border border-[var(--border-color)]">
               {recipe.ingredients.map((ingredient, index) => (
@@ -134,7 +182,7 @@ export default function RecipeCard({
                   </span>
 
                   <span className="shrink-0 font-mono text-xs font-bold text-[var(--accent-color)]">
-                    {ingredient.amount}
+                    {scaleAmount(ingredient.amount, batchSize)}
                   </span>
                 </li>
               ))}
