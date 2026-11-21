@@ -62,7 +62,7 @@ export default function Navbar({
                   value={searchQuery}
                   onChange={(e: ChangeEvent<HTMLInputElement>) => onSearchChange(e.target.value)}
                   aria-label="Search drink recipes"
-                  className="h-9 w-full rounded-lg border border-[var(--border-color)] bg-[var(--bg-secondary)] py-1 pl-9 pr-8 text-xs text-[var(--text-primary)] shadow-sm placeholder:text-[var(--text-muted)] focus:border-[var(--accent-color)] focus:outline-none focus:ring-1 focus:ring-[var(--accent-soft)]"
+                  className="h-10 w-full rounded-lg border border-[var(--border-color)] bg-[var(--bg-secondary)] py-1 pl-9 pr-8 text-base text-[var(--text-primary)] shadow-sm placeholder:text-[var(--text-muted)] focus:border-[var(--accent-color)] focus:outline-none focus:ring-1 focus:ring-[var(--accent-soft)] sm:h-9 sm:text-xs"
                 />
                 {searchQuery && (
                   <button
